@@ -12,31 +12,23 @@ public:
         this->val = val;
         this->next = NULL;
     }
-
-    void show()
-    {
-        cout << val << " " << next << endl;
-    }
 };
 
-void insertAtTail(Node *&head, int v)
+void insetOneToTail(Node *&head, int val)
 {
-
-    Node *newNode = new Node(v);
+    Node *newNode = new Node(val);
 
     if (head == NULL)
     {
         head = newNode;
         return;
     }
-
     Node *temp = head;
-
     while (temp->next != NULL)
     {
         temp = temp->next;
     }
-    // temp last node e
+    // last ghore
 
     temp->next = newNode;
 }
@@ -45,7 +37,8 @@ void printing(Node *head)
 {
 
     Node *temp = head;
-    cout << "Your Linked List: ";
+
+    cout << "Your Linked list: ";
     while (temp != NULL)
     {
         cout << temp->val << " ";
@@ -56,30 +49,42 @@ void printing(Node *head)
 
 int main()
 {
-    Node *head = NULL;
+    // int *ptr = NULL;
+    // int x = 10;
+    // ptr=&x;
+    Node *head = NULL; // head address  head er value   head er  next
+    // cout << head;
     while (true)
     {
+        // break;
+
         int op;
-        cout << "Option 1: Insert at Tail" << endl;
-        cout << "Option 2: Print Linked List" << endl;
-        cout << "Option 3: Terminate" << endl;
+        cout << "Select Option: " << endl;
+        cout << "Option 1 for insert :" << endl;
+        cout << "Option 2 for print :" << endl;
+        cout << "Option 3 for terminate :" << endl;
+
         cin >> op;
 
         if (op == 1)
         {
             int val;
-            cout << "Please enter value: ";
+            cout << "Give your value: ";
             cin >> val;
-            insertAtTail(head, val);
+            insetOneToTail(head, val);
         }
         else if (op == 2)
         {
-
             printing(head);
         }
         else if (op == 3)
         {
             break;
+        }
+        else
+        {
+            cout << "Wrong! Please choose again!" << endl;
+            continue;
         }
     }
 
