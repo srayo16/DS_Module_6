@@ -59,6 +59,14 @@ void pos(Node *head, int p, int v)
     for (int i = 1; i <= (p - 1); i++)
     {
         temp = temp->next;
+        if (temp == NULL)
+        {
+            cout << endl
+                 << endl
+                 << "Not valid!" << endl
+                 << endl;
+            return;
+        }
     }
     newNode->next = temp->next;
     // cout << temp << " " << temp->next << endl;
@@ -92,7 +100,23 @@ void deleteAny(Node *head, int p)
     while (i != t)
     {
         temp = temp->next;
+        if (temp == NULL)
+        {
+            cout << endl
+                 << endl
+                 << "Not valid!" << endl
+                 << endl;
+            return;
+        }
         i++;
+    }
+    if (temp->next->next == NULL)
+    {
+        cout << endl
+             << endl
+             << "Not valid!" << endl
+             << endl;
+        return;
     }
     temp2 = temp->next;
     temp->next = temp2->next;
@@ -106,7 +130,14 @@ void deleteAny(Node *head, int p)
 
 void deleteHead(Node *&head)
 {
-
+    if (head == NULL)
+    {
+        cout << endl
+             << endl
+             << "Not valid!" << endl
+             << endl;
+        return;
+    }
     Node *temp = head;
 
     head = temp->next;
